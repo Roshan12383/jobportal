@@ -97,8 +97,8 @@ const Toolbar=({editor}:{editor:Editor})=>{
     }});
 
 
-    const handleHeadingChange=(value:string)=>{
-       if(value==="paragraph"){
+    const handleHeadingChange=(value: string | null)=>{
+       if(!value || value==="paragraph"){
         editor.chain().focus().setParagraph().run();
        }else{
         const level=Number.parseInt(value.replace("heading",""))as

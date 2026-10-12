@@ -28,9 +28,9 @@ export function JobFilters({ search, jobType, jobLevel, workType }: JobFiltersPr
   const current = useRef({ search, jobType, jobLevel, workType });
   current.current = { search: keyword, jobType, jobLevel, workType };
 
-  function navigate(next: { search: string; jobType: string; jobLevel: string; workType: string }) {
+  function navigate(next: { search?: string; jobType?: string; jobLevel?: string; workType?: string }) {
     const params = new URLSearchParams();
-    const term = next.search.trim();
+    const term = (next.search ?? "").trim();
 
     if (term) params.set("search", term);
     if (next.jobType) params.set("jobType", next.jobType);
@@ -68,19 +68,19 @@ export function JobFilters({ search, jobType, jobLevel, workType }: JobFiltersPr
       <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
         <div className="grid flex-1 grid-cols-1 gap-3 sm:grid-cols-3">
           <FilterSelect
-            value={jobType}
+            value={jobType ?? ""}
             placeholder="Job Type"
             options={JOB_TYPE}
             onChange={(value) => navigate({ ...current.current, jobType: value })}
           />
           <FilterSelect
-            value={jobLevel}
+            value={jobLevel ?? ""}
             placeholder="Job Level"
             options={JOB_LEVEL}
             onChange={(value) => navigate({ ...current.current, jobLevel: value })}
           />
           <FilterSelect
-            value={workType}
+            value={workType ?? ""}
             placeholder="Work Type"
             options={WORK_TYPE}
             onChange={(value) => navigate({ ...current.current, workType: value })}

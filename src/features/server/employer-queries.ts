@@ -2,7 +2,7 @@ import { getCurrentUser } from "../auth/server/auth.queries"
 import { db } from "@/config/db";
 import { employers, jobs } from "@/drizzle/schema";
 import { employerProfileSchema } from "../employers/employer.schema";
-import { and, count, desc, eq, gte, isNull, or } from "drizzle-orm";
+import { and, count, desc, eq, isNull, or, sql } from "drizzle-orm";
 
 function localDateKey(date = new Date()) {
    const month = String(date.getMonth() + 1).padStart(2, "0");
@@ -17,7 +17,7 @@ export async function getEmployerDashboardCounts(employerId: number) {
       .where(and(
          eq(jobs.employerId, employerId),
          isNull(jobs.deletedAt),
-         or(isNull(jobs.expiresAt), gte(jobs.expiresAt, localDateKey())),
+         or(isNull(jobs.expiresAt), sql`${jobs.expiresAt} >= ${localDateKey()}`),
       ));
 
    return {

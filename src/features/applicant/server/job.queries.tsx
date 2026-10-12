@@ -1,7 +1,7 @@
 import { JOB_LEVEL, JOB_TYPE, WORK_TYPE } from "@/config/constant";
 import { db } from "@/config/db";
 import { employers, jobs, users } from "@/drizzle/schema";
-import { and, count, desc, eq, gte, isNull, like, or, SQL } from "drizzle-orm";
+import { and, count, desc, eq, isNull, like, or, sql, SQL } from "drizzle-orm";
 
 export type JobFilters = {
   search?: string;
@@ -10,9 +10,9 @@ export type JobFilters = {
   workType?: string;
 };
 
-function pickEnum(value: string | undefined, options: readonly string[]) {
+function pickEnum<T extends string>(value: string | undefined, options: readonly T[]) {
   if (!value) return undefined;
-  return options.includes(value) ? value : undefined;
+  return options.includes(value as T) ? (value as T) : undefined;
 }
 
 function localDateKey(date = new Date()) {
@@ -27,7 +27,7 @@ function openJobConditions(filters: JobFilters = {}) {
   const conditions: SQL[] = [
     isNull(jobs.deletedAt),
     isNull(employers.deletedAt),
-    or(isNull(jobs.expiresAt), gte(jobs.expiresAt, today))!,
+    or(isNull(jobs.expiresAt), sql`${jobs.expiresAt} >= ${today}`)!,
   ];
 
   const term = filters.search?.replace(/[%_]/g, "").trim();
