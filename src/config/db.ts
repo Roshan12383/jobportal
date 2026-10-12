@@ -1,12 +1,15 @@
-import "dotenv/config";
 
-import mysql from "mysql2";
+import mysql from "mysql2/promise";
 import { drizzle } from "drizzle-orm/mysql2";
 
-const connection = mysql.createConnection(process.env.DATABASE_URL!);
+const databaseUrl = process.env.DATABASE_URL;
 
-connection.query("SET time_zone = '+00:00'");
+if (!databaseUrl) {
+  throw new Error("DATABASE_URL is not configured");
+}
+
+const pool = mysql.createPool(databaseUrl);
 
 export const db = drizzle({
-  client: connection,
+  client: pool.pool,
 });
