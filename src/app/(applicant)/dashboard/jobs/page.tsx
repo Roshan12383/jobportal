@@ -43,7 +43,7 @@ export default async function JobsPage({ searchParams }: JobsPageProps) {
   if (workType) query.workType = workType;
 
   return (
-    <div className="space-y-5 p-6">
+    <div className="space-y-5 p-4 sm:p-6">
       <div className="flex flex-col gap-1">
         <h1 className="text-2xl font-bold tracking-tight text-gray-900">
           Find your Next Dream Job

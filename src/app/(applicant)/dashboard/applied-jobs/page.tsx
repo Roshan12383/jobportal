@@ -30,7 +30,7 @@ export default async function AppliedJobsPage() {
   const jobLabel = count === 1 ? "job" : "jobs";
 
   return (
-    <div className="space-y-6 p-6">
+    <div className="space-y-6 p-4 sm:p-6">
       <div>
         <h1 className="text-2xl font-bold tracking-tight text-gray-900">Applied Jobs</h1>
         <p className="mt-1 text-sm text-gray-500">

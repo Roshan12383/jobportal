@@ -33,7 +33,7 @@ export const JobCard = ({ job, resumes, alreadyApplied, saved, returnTo }: JobCa
 
   return (
     <div className="group relative rounded-xl border border-gray-100 bg-white px-4 py-3 shadow-sm transition-all hover:border-blue-500/30 hover:shadow-md">
-      <div className="absolute top-3 right-4 z-10 flex items-center gap-2">
+      <div className="mb-3 flex flex-wrap items-center justify-end gap-2 sm:absolute sm:top-3 sm:right-4 sm:z-10 sm:mb-0">
         <SaveJobButton jobId={job.id} saved={saved} />
         <ApplyJobButton
           jobId={job.id}
@@ -43,7 +43,7 @@ export const JobCard = ({ job, resumes, alreadyApplied, saved, returnTo }: JobCa
         />
       </div>
       <Link href={`/dashboard/jobs/${job.id}?from=${encodeURIComponent(returnTo)}`} className="block">
-        <div className="flex items-center gap-3 pr-56">
+        <div className="flex items-center gap-3 sm:pr-56">
           <div className="relative h-10 w-10 shrink-0 overflow-hidden rounded-lg border border-gray-100 bg-gray-50">
             {job.companyLogo ? (
               <Image

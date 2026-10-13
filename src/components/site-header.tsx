@@ -39,9 +39,9 @@ export function SiteHeader({ area = "public" }: SiteHeaderProps) {
 
   return (
     <header className={`sticky top-0 z-40 bg-background/95 backdrop-blur ${isDashboard ? "" : "border-b border-border"}`}>
-      <div className={isDashboard ? "relative flex h-16 items-center justify-center px-6" : "mx-auto flex h-16 max-w-6xl items-center gap-4 px-4"}>
+      <div className={isDashboard ? "relative flex min-h-16 items-center justify-center px-3 sm:px-6" : "mx-auto flex min-h-16 max-w-6xl flex-wrap items-center gap-3 px-4 py-2"}>
         {isDashboard ? (
-          <nav className={`flex items-center gap-6 text-sm text-muted-foreground ${isEmployer ? "-translate-x-16" : "-translate-x-10"}`}>
+          <nav className={`flex flex-wrap items-center justify-center gap-x-4 gap-y-2 py-3 text-sm text-muted-foreground lg:gap-6 ${isEmployer ? "lg:-translate-x-16" : "lg:-translate-x-10"}`}>
             {links}
           </nav>
         ) : (
@@ -52,7 +52,7 @@ export function SiteHeader({ area = "public" }: SiteHeaderProps) {
               </span>
               CareerNest
             </Link>
-            <nav className="ml-6 hidden items-center gap-6 text-sm text-muted-foreground md:flex">
+            <nav className="order-3 flex w-full flex-wrap items-center gap-x-4 gap-y-2 text-sm text-muted-foreground md:order-none md:ml-6 md:w-auto md:gap-6">
               <Link href="/" className="hover:text-foreground">Home</Link>
               <Link href="/jobs" className="hover:text-foreground">Find Job</Link>
               <Link href="/employers" className="hover:text-foreground">Employers</Link>

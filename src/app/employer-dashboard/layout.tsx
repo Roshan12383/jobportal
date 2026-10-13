@@ -13,9 +13,9 @@ export default async function RootLayout({children}:Readonly<{children:React.Rea
     return(
         <div className="min-h-screen bg-background">
             <EmployerSidebar/>
-            <div className="ml-64">
+            <div className="min-w-0 lg:ml-64">
             <SiteHeader area="employer" user={{ role: user.role, name: user.name }} />
-           <main className="container mx-auto mt-5 px-8">{children}</main>
+           <main className="container mx-auto mt-5 px-4 sm:px-8">{children}</main>
             </div>
         </div>
     )

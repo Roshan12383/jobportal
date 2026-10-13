@@ -52,7 +52,7 @@ const onSubmit=async(data:RegisterUserWithConfirmData)=>{
 
     return (
         <div className="flex justify-center items-center p-4 min-h-screen bg-background">
-           <div className="shadow-sm p-8 w-full  max-w-lg rounded-xl border bg-white">  
+           <div className="w-full max-w-lg rounded-xl border bg-white p-5 shadow-sm sm:p-8">  
 
             <div className="text-center mb-8">
               <div className="bg-blue-600 flex items-center h-16 w-16 rounded-full mx-auto mb-4 justify-center text-white ">

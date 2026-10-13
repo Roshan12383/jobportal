@@ -12,7 +12,7 @@ export function ApplicationRoleFilter({ query }: { query: string }) {
   const timer = useRef<number | null>(null);
 
   return (
-    <label className="relative block w-52 shrink-0">
+    <label className="relative block w-full shrink-0 sm:w-52">
       <Search className="pointer-events-none absolute top-1/2 left-2.5 h-3.5 w-3.5 -translate-y-1/2 text-gray-400" />
       <input
         value={keyword}

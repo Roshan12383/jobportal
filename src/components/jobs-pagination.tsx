@@ -11,7 +11,7 @@ export function JobsPagination({ page, totalPages, hrefFor }: JobsPaginationProp
   if (totalPages < 1) return null;
 
   return (
-    <nav className="flex items-center justify-center gap-6 border-t border-gray-100 pt-6 text-sm">
+    <nav className="flex flex-wrap items-center justify-center gap-3 overflow-x-auto border-t border-gray-100 pt-6 text-sm sm:gap-6">
       {page <= 1 ? (
         <span className="inline-flex cursor-default items-center gap-1 text-gray-300">
           <ChevronLeft className="h-4 w-4" />

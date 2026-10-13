@@ -31,16 +31,16 @@ const ApplicantSidebar=()=>{
      return pattern.test({pathname})
   }
  return(
-    <div className="bg-card w-64 border-r bottom-0 top-0 border-border fixed">
+    <div className="z-30 w-full border-b border-border bg-card lg:fixed lg:top-0 lg:bottom-0 lg:w-64 lg:border-r lg:border-b-0">
 
-        <div className="p-6">
+        <div className="px-4 py-3 lg:p-6">
             <h2 className="text-sm font-medium text-muted-foreground uppercase tracking-wide">
                 Applicant Dashboard
             </h2>
         </div>
         
 
-    <nav className="px-3 space-y-1">
+    <nav className="flex gap-1 overflow-x-auto px-3 pb-3 lg:block lg:space-y-1 lg:overflow-visible lg:px-3 lg:pb-0">
       {
         applicantNavItems.map((currNav)=>{
             const Icon=currNav.icon;
@@ -49,7 +49,7 @@ const ApplicantSidebar=()=>{
             return(
              <Link key={currNav.name} href={currNav.href || "#"}
                className={cn(
-                  "flex items-center gap-3 px-3 py-2 font-medium text-sm rounded-lg transition-colors",
+                  "flex shrink-0 items-center gap-3 px-3 py-2 font-medium text-sm rounded-lg transition-colors",
                
                   active?"text-primary bg-primary/10":"text-muted-foreground hover:text-foreground hover:bg-accent"
             )}
@@ -61,7 +61,7 @@ const ApplicantSidebar=()=>{
         })}
     </nav>
 
-    <div className="absolute bottom-6 left-3 right-3">
+    <div className="px-3 pb-3 lg:absolute lg:bottom-6 lg:left-3 lg:right-3 lg:px-0 lg:pb-0">
        <button onClick={logoutUserAction}
           className="flex items-center gap-3 px-3 py-2 text-sm font-medium text-muted-foreground 
           hover:text-foreground hover:bg-accent rounded-lg transition-colors w-full"

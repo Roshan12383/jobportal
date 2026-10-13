@@ -40,7 +40,7 @@ const result=await loginAction(data);
 
   return(
     <div className="flex justify-center items-center p-4 min-h-screen">
-        <div className="shadow-sm w-full max-w-lg p-8 border bg-white rounded-sm ">
+        <div className="w-full max-w-lg rounded-sm border bg-white p-5 shadow-sm sm:p-8">
             <div className="text-center mb-8">
               <div className="bg-primary flex items-center h-16 w-16 rounded-full mx-auto mb-4 justify-center text-white ">
                   <UserRound/>

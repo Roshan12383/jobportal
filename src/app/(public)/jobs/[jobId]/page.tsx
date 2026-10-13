@@ -44,7 +44,7 @@ export default async function PublicJobPage({ params, searchParams }: JobPagePro
         ← Back
       </Link>
       <div className="grid items-start gap-6 lg:grid-cols-[minmax(0,1fr)_280px]">
-        <header className="flex items-start gap-4 border-b border-border pb-6 lg:col-span-2">
+        <header className="flex flex-col items-start gap-4 border-b border-border pb-6 sm:flex-row lg:col-span-2">
           <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-xl border border-border bg-muted">
             {job.companyLogo ? (
               <Image src={job.companyLogo} alt="" fill sizes="56px" className="object-cover" />

@@ -25,12 +25,13 @@ import z from "zod"
 interface JobPostFormProps{
   initialData?:any;
   isEditMode?:boolean;
+  returnTo?:string;
 }
 
 type JobFormInput = z.input<typeof jobsSchema>;
 type JobFormOutput = z.output<typeof jobsSchema>;
 
-const JobForm=({initialData,isEditMode=false}:JobPostFormProps)=>{
+const JobForm=({initialData,isEditMode=false,returnTo="/employer-dashboard/jobs"}:JobPostFormProps)=>{
    const {register,control,handleSubmit,formState:{errors,isDirty,isSubmitting}}=useForm<JobFormInput, any, JobFormOutput>({
     resolver:zodResolver(jobsSchema), 
     defaultValues:initialData?{
@@ -66,7 +67,7 @@ const JobForm=({initialData,isEditMode=false}:JobPostFormProps)=>{
         }
        if(response.status==="SUCCESS") {
         toast.success(response.message);
-        router.push("/employer-dashboard/jobs")
+        router.push(isEditMode ? returnTo : "/employer-dashboard/jobs")
        }
       else toast.error(response.message);
       } catch (error) {
@@ -74,7 +75,7 @@ const JobForm=({initialData,isEditMode=false}:JobPostFormProps)=>{
       }
    }
 return(
-   <Card className="w-3/4">
+   <Card className="w-full lg:w-3/4">
     <CardContent>
         <form className="space-y-6"  onSubmit={handleSubmit(handleFormSubmit)}>
            <div className="space-y-2">

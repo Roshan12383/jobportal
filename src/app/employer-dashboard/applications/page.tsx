@@ -39,7 +39,7 @@ export default async function EmployerApplicationsPage({ searchParams }: Applica
   return (
     <div className="space-y-6">
       <div>
-        <div className="flex items-center justify-between gap-4">
+        <div className="flex flex-col items-stretch gap-3 sm:flex-row sm:items-center sm:justify-between">
           <h1 className="text-2xl font-semibold text-foreground">Received Applications</h1>
           <ApplicationRoleFilter query={role} />
         </div>

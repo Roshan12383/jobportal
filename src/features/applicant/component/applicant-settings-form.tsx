@@ -80,7 +80,7 @@ const ApplicantSettingsForm = ({
     }
 
     return (
-        <div className="max-w-5xl mx-auto py-8">
+        <div className="mx-auto max-w-5xl py-4 sm:py-8">
             <form className="space-y-8" onSubmit={handleSubmit(onSubmit)}>
                 <Card>
                     <CardHeader>

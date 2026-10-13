@@ -18,14 +18,14 @@ export default async function HomePage({ searchParams }: HomePageProps) {
 
   return (
     <div>
-      <section className="px-4 py-20 text-center">
-        <h1 className="mx-auto max-w-3xl text-4xl font-bold tracking-tight text-foreground md:text-5xl">
+      <section className="px-4 py-10 text-center sm:py-16 lg:py-20">
+        <h1 className="mx-auto max-w-3xl text-3xl font-bold tracking-tight text-foreground sm:text-4xl md:text-5xl">
           Find a job that suits your interest & skills.
         </h1>
         <p className="mx-auto mt-4 max-w-xl text-sm text-muted-foreground">
           Discover job openings from top companies. Your next career move starts right here.
         </p>
-        <form action="/" className="mx-auto mt-8 flex max-w-2xl items-center gap-2 rounded-full border border-border bg-card p-2 shadow-sm">
+        <form action="/" className="mx-auto mt-8 flex max-w-2xl flex-col gap-2 rounded-3xl border border-border bg-card p-2 shadow-sm sm:flex-row sm:items-center sm:rounded-full">
           <label className="relative flex-1">
             <Search className="pointer-events-none absolute top-1/2 left-3 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
             <input
@@ -35,7 +35,7 @@ export default async function HomePage({ searchParams }: HomePageProps) {
               className="h-11 w-full bg-transparent pr-3 pl-10 text-sm outline-none"
             />
           </label>
-          <button type="submit" className="h-11 rounded-full bg-foreground px-5 text-sm font-medium text-background">
+          <button type="submit" className="h-11 w-full rounded-full bg-foreground px-5 text-sm font-medium text-background sm:w-auto">
             Search Jobs
           </button>
         </form>

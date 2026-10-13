@@ -53,13 +53,13 @@ export default async function ApplicantJobPage({ params, searchParams }: JobPage
           : "Not Disclosed";
 
   return (
-    <div className="space-y-4 px-6 pt-1 pb-6">
+    <div className="space-y-4 px-1 pt-1 pb-6 sm:px-6">
       <Link href={backHref(from)} className="-ml-4 inline-flex text-sm text-gray-500 hover:text-gray-900">
         ← Back
       </Link>
 
       <div className="grid max-w-5xl items-start gap-6 lg:grid-cols-[minmax(0,1fr)_280px]">
-      <header className="flex items-start gap-4 border-b border-gray-100 pb-6 lg:col-span-2">
+      <header className="flex flex-col items-start gap-4 border-b border-gray-100 pb-6 sm:flex-row lg:col-span-2">
         <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-xl border border-gray-100 bg-gray-50">
           {job.companyLogo ? (
             <Image

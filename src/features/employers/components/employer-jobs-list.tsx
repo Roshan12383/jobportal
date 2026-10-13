@@ -49,7 +49,7 @@ const handleDelete=async(jobId:number)=>{
 
 
 const handleEdit=async(jobId:number)=>{
-  router.push(`/employer-dashboard/jobs/${jobId}/edit`); 
+  router.push(`/employer-dashboard/jobs/${jobId}/edit?from=${encodeURIComponent("/employer-dashboard/jobs")}`); 
 }
 
   if(isLoading){

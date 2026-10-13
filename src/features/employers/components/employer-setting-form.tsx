@@ -72,7 +72,7 @@ const EmployerSettingForm=({initialData}:props)=>{
    }
 
    return(
-   <Card className="w-3/4">
+   <Card className="w-full lg:w-3/4">
     <CardContent>
         <form onSubmit={handleSubmit(handleFormSubmit)} className="space-y-6">
       
@@ -125,7 +125,7 @@ const EmployerSettingForm=({initialData}:props)=>{
               <ImageUpload value={field.value} onChange={field.onChange} 
                 boxText={"A photo larger than 400 pixel works best. Max photo size 5 MB."}
               className={cn(
-                fieldState.error && "ring-1 ring-destructive/50 rounded-lg","h-64 w-64"
+                fieldState.error && "ring-1 ring-destructive/50 rounded-lg","h-40 w-40 sm:h-64 sm:w-64"
               )}
                 />
 
@@ -486,7 +486,7 @@ export const ImageUpload = ({
     <div
       {...getRootProps()}
       className={cn(
-        "h-64 w-64",
+        "h-40 w-40 sm:h-64 sm:w-64",
         "border-2 border-dashed border-border rounded-lg",
         "flex flex-col items-center justify-center",
         "cursor-pointer text-center",
